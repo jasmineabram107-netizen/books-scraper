@@ -45,3 +45,8 @@ for book in books:
     })
 
 print(f"Found {len(books_data)} books on the first page")
+
+# Save results to a CSV file
+df = pd.DataFrame(books_data)
+df.to_csv('books.csv', index=False)
+print("Saved results to books.csv")
