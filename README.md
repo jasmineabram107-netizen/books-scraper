@@ -1,18 +1,20 @@
 # Books Scraper
 
-A Python web scraper that collects book data from [books.toscrape.com](http://books.toscrape.com), a website built for scraping practice.
+A Python web scraper that collects data on all 1,000 books from [books.toscrape.com](http://books.toscrape.com), a website built for scraping practice.
 
 ## What it does
 
-- Downloads the book listing page
+- Scrapes all 50 listing pages automatically (pagination)
 - Extracts each book's **title**, **price**, **star rating**, and **detail page URL**
 - Builds full URLs from relative links using `urljoin`
 - Sends a browser User-Agent header with each request
+- Waits 1 second between pages to avoid overloading the website
+- Stops safely if a page is missing
 - Saves all results to a CSV file that opens in Excel
 
 ## Sample output
 
-See [books.csv](books.csv) for real results from the script (20 books).
+See [books.csv](books.csv) for real results from the script (1,000 books).
 
 ## Tools used
 
@@ -35,9 +37,8 @@ Run the script:
 python first_scrapping.py
 ```
 
-The results are saved to `books.csv` in the same folder.
+It takes about a minute and shows progress for each page. The results are saved to `books.csv` in the same folder.
 
 ## Planned improvements
 
-- Scrape all 50 pages, not just the first
 - Visit each book's detail page to collect its description
